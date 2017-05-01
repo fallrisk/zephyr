@@ -1,0 +1,39 @@
+menuconfig UART_ATMEL_SAM4
+	bool "Atmel SAM4 family processor UART driver"
+	default n
+	select SERIAL_HAS_DRIVER
+	depends on SOC_ATMEL_SAM4
+	help
+	This option enables the UART driver for Atmel SAM4
+	family processors. UART on the SAM4 has only two wires
+	for RX and TX, and does not have other pins
+	(such as CTS and RTS).
+
+config UART_ATMEL_SAM4_NAME
+	string "Device Name for Atmel SAM4 UART"
+	default "UART_1"
+	depends on UART_ATMEL_SAM4
+	help
+	  This is the device name for UART, and is included in the device
+	  struct.
+
+config UART_ATMEL_SAM4_IRQ_PRI
+	int "Atmel SAM4 UART Interrupt Priority"
+	default 0
+	depends on UART_ATMEL_SAM4
+	help
+	  The interrupt priority for UART port.
+
+config UART_ATMEL_SAM4_BAUD_RATE
+	int "Atmel SAM4 UART Baud Rate"
+	default 0
+	depends on UART_ATMEL_SAM4
+	help
+	  The baud rate for UART port to be set to at boot.
+
+config UART_ATMEL_SAM4_CLK_FREQ
+	int "Atmel SAM4 UART Clock Frequency"
+	default 0
+	depends on UART_ATMEL_SAM4
+	help
+	  The clock frequency for UART port.

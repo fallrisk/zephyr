@@ -8,6 +8,36 @@
 
 if USB
 
+config USB_ATMEL_SAM4S
+	bool
+	prompt "Atmel SAM4S USB Driver"
+	default n
+	help
+	Atmel SAM4S USB Device Port UDP driver for Zephyr USB Device
+	Controller.
+
+config USB_SAM4S_IRQ_PRI
+	int
+	depends on USB_ATMEL_SAM4S
+	prompt "Atmel SAM4S USB Driver Interrupt priority"
+	default 20
+	help
+	USB interrupt priority.
+
+config SYS_LOG_USB_SAM4S_LEVEL
+	int
+	prompt "Atmel SAM4S USB driver log level"
+	depends on USB_ATMEL_SAM4S
+	default 0
+	help
+	Sets log level for Atmel SAM4S USB driver
+	Levels are:
+	- 0 OFF, do not write
+	- 1 ERROR, only write SYS_LOG_ERR
+	- 2 WARNING, write SYS_LOG_WRN in adition to previous level
+	- 3 INFO, write SYS_LOG_INF in adition to previous levels
+	- 4 DEBUG, write SYS_LOG_DBG in adition to previous levels
+
 config USB_DW
 	bool
 	prompt "Designware USB Device Controller Driver"

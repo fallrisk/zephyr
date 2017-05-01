@@ -43,6 +43,14 @@ config SPI_INTEL
 	  was formerly found on XScale chips. It can be found nowadays
 	  on CEXXXX Intel media controller and Quark CPU (2 of them).
 
+config SPI_ATMEL_SAM4
+	bool
+	prompt "Atmel SAM4 controller driver"
+	depends on SPI && SOC_ATMEL_SAM4
+	default n
+	help
+	  SPI driver for Atmel SAM4.
+
 
 if SPI
 config SPI_INIT_PRIORITY

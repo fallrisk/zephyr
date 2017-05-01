@@ -1,0 +1,7 @@
+
+if BOARD_ATMEL_SAM4S_XPLD
+
+config BOARD
+	default atmel_sam4s_xpld
+
+endif # BOARD_ATMEL_SAM4S_XPLD

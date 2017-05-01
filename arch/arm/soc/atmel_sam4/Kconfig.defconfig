@@ -1,0 +1,92 @@
+# Kconfig - Atmel SAM4 family processor configuration options
+#
+# Copyright (c) 2017 Justin Watson
+# SPDX-License-Identifier: Apache-2.0
+#
+
+if SOC_ATMEL_SAM4
+
+config SOC
+	default atmel_sam4
+
+config NUM_IRQ_PRIO_BITS
+	int
+	default 4
+
+#
+# SAM4S16 has total 35 peripherals capable of
+# generating interrupts.
+#
+config NUM_IRQS
+	int
+	default 35
+
+config SYS_CLOCK_HW_CYCLES_PER_SEC
+	int
+	default 84000000
+
+#
+# SRAM address depends on the processor.
+#
+# SAM4S16 has 1 SRAM bank:
+#   1024K @ 0x20100000
+#
+# Table 8-1 of datasheet has the SRAM Size
+# Figure 7-1 page 38 has the SRAM base address
+#
+config SRAM_SIZE
+	int
+	default 128 if SOC_ATMEL_SAM4S16
+
+config SRAM_BASE_ADDRESS
+	hex
+	default 0x20100000 if SOC_ATMEL_SAM4S16
+
+#
+# Atmel SAM4 family has flash starting @ 0x00400000.
+# Flash Sector Organization Figure 8-2, Page 41
+#
+# SAM4S16 has 1024K of flash.
+#
+config FLASH_SIZE
+	int
+	default 1024 if SOC_ATMEL_SAM4S16
+
+config FLASH_BASE_ADDRESS
+	hex
+	default 0x00400000
+
+if UART_ATMEL_SAM4
+
+config UART_ATMEL_SAM4_BAUD_RATE
+	int
+	default 115200
+
+config UART_ATMEL_SAM4_CLK_FREQ
+	int
+	default 84000000
+	help
+	This is the clock that the UART receives. Not the baudrate.
+
+endif # UART_ATMEL_SAM4
+
+if GPIO
+
+config GPIO_ATMEL_SAM4
+	def_bool y
+
+config GPIO_ATMEL_SAM4_PORTA
+	bool
+	default y
+
+config GPIO_ATMEL_SAM4_PORTB
+	bool
+	default y
+
+config GPIO_ATMEL_SAM4_PORTC
+	bool
+	default y
+
+endif # GPIO
+
+endif # SOC_ATMEL_SAM4

@@ -1,0 +1,12 @@
+
+config BOARD_ATMEL_SAM4S_XPLD
+	bool "Atmel SAM4S Xplained"
+	depends on SOC_ATMEL_SAM4S16
+
+config ENABLE_EXTERAL_SRAM
+	bool "Enable the external SRAM"
+	default n
+	depends on BOARD_ATMEL_SAM4S_XPLD
+	help
+	This is for the IS66WV51216DALL chip on the
+	SAM4S Xplained Board.
