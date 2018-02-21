@@ -26,6 +26,23 @@ config USB_DW_IRQ_PRI
 	help
 	  USB interrupt priority.
 
+config USB_DC_SAM4S
+	bool
+	prompt "USB device controller driver for SAM4S SoC."
+	depends on SOC_SERIES_SAM4S
+	select USB_DEVICE_DRIVER
+	default n
+	help
+	  SAM4S USB device controller driver.
+
+config USB_SAM4S_IRQ_PRIO
+	int "SAM4S USB Driver Interrupt Priority."
+	depends on USB_DC_SAM4S
+	default 4
+	help
+	  USB interrupt priority.
+
+
 config USB_DC_STM32
 	bool
 	prompt "USB device controller driver for STM32 devices"
