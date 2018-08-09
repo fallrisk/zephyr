@@ -56,6 +56,8 @@ features:
 +-----------+------------+-------------------------------------+
 | GPIO      | on-chip    | gpio                                |
 +-----------+------------+-------------------------------------+
+| SPI       | on-chip    | serial peripheral interface         |
++-----------+------------+-------------------------------------+
 
 Other hardware features are not currently supported by Zephyr.
 

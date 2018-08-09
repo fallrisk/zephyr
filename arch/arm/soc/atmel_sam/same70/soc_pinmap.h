@@ -7,7 +7,8 @@
  * @brief Atmel SAM E70 MCU pin definitions.
  *
  * This file contains pin configuration data required by different MCU
- * modules to correctly configure GPIO controller.
+ * modules to correctly configure GPIO controller. The information is
+ * located at <z/ext/hal/atmel/asf/sam/include/same70/pio/same70q21.h>.
  */
 
 #ifndef _ATMEL_SAM_SOC_PINMAP_H_
@@ -117,6 +118,18 @@
 
 #define PINS_SSC0 {PIN_SSC0_RD, PIN_SSC0_RF, PIN_SSC0_RK, PIN_SSC0_TD, \
 	  PIN_SSC0_TF, PIN_SSC0_TK}
+
+/* Serial Peripheral Interface (SPI) */
+
+#define PIN_SPI0_SPCK {PIO_PD22B_SPI0_SPCK, PIOD, ID_PIOD, SOC_GPIO_FUNC_B}
+#define PIN_SPI0_MOSI {PIO_PD21B_SPI0_MOSI, PIOD, ID_PIOD, SOC_GPIO_FUNC_B}
+#define PIN_SPI0_MISO {PIO_PD20B_SPI0_MISO, PIOD, ID_PIOD, SOC_GPIO_FUNC_B}
+#define PIN_SPI0_NPCS0 {PIO_PB2D_SPI0_NPCS0, PIOB, ID_PIOB, SOC_GPIO_FUNC_D}
+
+#define PIN_SPI1_SPCK {PIO_PC24C_SPI1_SPCK, PIOC, ID_PIOC, SOC_GPIO_FUNC_C}
+#define PIN_SPI1_MOSI {PIO_PC27C_SPI1_MOSI PIOC, ID_PIOC, SOC_GPIO_FUNC_C}
+#define PIN_SPI1_MISO {PIO_PC26C_SPI1_MISO PIOC, ID_PIOC, SOC_GPIO_FUNC_C}
+#define PIN_SPI1_NPCS0 {PIO_PC25C_SPI1_NPCS0 PIOC, ID_PIOC, SOC_GPIO_FUNC_C}
 
 /* Two-wire Interface (TWIHS) */
 
